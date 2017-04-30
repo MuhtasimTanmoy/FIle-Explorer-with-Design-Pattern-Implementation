@@ -82,7 +82,9 @@ public class Controller implements Initializable {
 
     @FXML
     void goToDirAction(ActionEvent event) {
+        currentPath=currDir.getText();
 
+        showView();
     }
 
     @FXML
@@ -191,7 +193,7 @@ public class Controller implements Initializable {
                             }
                         }else{
 
-                        }
+                    }
                     }catch(IOException x){
                         x.printStackTrace();
                     }
