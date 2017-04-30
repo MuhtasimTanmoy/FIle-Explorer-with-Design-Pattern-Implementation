@@ -32,7 +32,8 @@
         </ScrollPane>
         <TableView fx:id="tableView" layoutX="248.0" layoutY="48.0" prefHeight="451.0" prefWidth="545.0" visible="false">
             <columns>
-                <TableColumn fx:id="Name" prefWidth="223.0" text="Name" />
+                <TableColumn fx:id="Icon" prefWidth="53.0" text="Icon" />
+                <TableColumn fx:id="Name" prefWidth="180.0" text="Name" />
                 <TableColumn fx:id="Size" minWidth="0.0" prefWidth="131.0" text="Size" />
                 <TableColumn fx:id="Date" minWidth="0.0" prefWidth="190.0" text="Date" />
             </columns>

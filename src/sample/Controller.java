@@ -11,7 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
 import sample.model.*;
 
 import java.io.File;
@@ -52,6 +51,9 @@ public class Controller implements Initializable {
 
     @FXML
     private TableColumn<baseItem,Long> Size;
+
+    @FXML
+    private TableColumn<baseItem,ImageView> Icon;
 
     @FXML
     private Button backButton;
@@ -199,6 +201,7 @@ public class Controller implements Initializable {
 
 
         //table view column added here
+        Icon.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         Name.setCellValueFactory(new PropertyValueFactory<>("name"));
         Date.setCellValueFactory(new PropertyValueFactory<>("lastModified"));
         Size.setCellValueFactory(new PropertyValueFactory<>("size"));
