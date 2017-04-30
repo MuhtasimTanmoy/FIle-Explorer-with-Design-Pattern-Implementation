@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <TreeView fx:id="treeView" layoutY="2.0" prefHeight="500.0" prefWidth="236.0" />
+        <TextField fx:id="currDir" layoutX="319.0" layoutY="15.0" onAction="#currDirShow" prefHeight="25.0" prefWidth="319.0" />
+        <Button fx:id="goToDIr" layoutX="651.0" layoutY="16.0" mnemonicParsing="false" onAction="#goToDirAction" prefHeight="25.0" prefWidth="47.0" text="Go" />
+        <ToggleButton fx:id="toggle" layoutX="714.0" layoutY="17.0" mnemonicParsing="false" onAction="#toggleList" prefHeight="25.0" prefWidth="34.0" text="L" />
+        <ToggleButton fx:id="toggle2" layoutX="748.0" layoutY="17.0" mnemonicParsing="false" onAction="#toggleTile" prefHeight="25.0" prefWidth="34.0" text="T" />
+        <Button fx:id="backButton" layoutX="243.0" layoutY="15.0" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="25.0" prefWidth="63.0" text="Back">
+            <effect>
+                <Blend />
+            </effect></Button>
+        <ScrollPane fx:id="scrollPane" layoutX="248.0" layoutY="48.0" prefHeight="445.0" prefWidth="545.0" visible="true">
+            <content>
+                <TilePane fx:id="tilePane">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </TilePane>
+            </content>
+        </ScrollPane>
+        <TableView fx:id="tableView" layoutX="248.0" layoutY="48.0" prefHeight="451.0" prefWidth="545.0" visible="false">
+            <columns>
+                <TableColumn fx:id="Name" prefWidth="223.0" text="Name" />
+                <TableColumn fx:id="Size" minWidth="0.0" prefWidth="131.0" text="Size" />
+                <TableColumn fx:id="Date" minWidth="0.0" prefWidth="190.0" text="Date" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>
