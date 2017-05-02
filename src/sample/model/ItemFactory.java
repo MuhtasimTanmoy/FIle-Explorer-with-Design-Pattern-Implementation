@@ -3,8 +3,10 @@ package sample.model;
 import java.io.File;
 
 /**
- * Created by t on 5/1/17.
+ * Created by t on 4/30/17.
  */
+//Factory pattern for two views
+
 public class ItemFactory {
 
     public baseItem getItem(boolean tableRender,File file){

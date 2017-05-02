@@ -1,0 +1,237 @@
+\documentclass[10pt]{article}
+
+\usepackage{array}
+\usepackage{color}
+
+\newcommand{\blueIt}[1]{\itshape \textcolor{blue}{#1}}
+
+\begin{document}
+
+
+\title{\bfseries \Huge Documentation and Design Pattern Usage on\\
+\blueIt{``File Explorer"}}
+
+\author{\bfseries Muhtasim Ulfat Tanmoy\\
+1405086}
+\date{\today}
+
+\maketitle
+
+
+\newpage
+
+\section {Design Pattern Identification and Selection}
+
+The given file Explorer project has following requirements:
+
+\begin{itemize} %unordered list
+ \item {\bfseries TreeView } - for showing file hierarchy.
+ \item {\bfseries TabletView } - for showing file in a table.
+  \item {\bfseries TileView } - for showing file in a tiles.
+  \item {\bfseries Switching } - convenient way for transition between views.
+ \end{itemize}
+ 
+ Now, {\bfseries TreeView } uses the composite design pattern.As we can create different node and each node can also have other nodes as child it matches all the specification for {\bfseries Composite design pattern}.\\
+ 
+ {\bfseries TableView } and {\bfseries TileView }  has list of files that has been adapted to the view in our code through {\bfseries TableItem} and {\bfseries TileItem} class(works as adapter ).The {\bfseries Tile} class further defines the structure of our TileView.The {\bfseries File} class is the adaptee and {\bfseries TableView } and {\bfseries TilePane } is the target class ,this clearly represents the {\bfseries Adapter class pattern}.\\
+ 
+ 
+ 
+ {\bfseries Switching } between views like making the same set of of files appear in different form in front of users clearly references{\bfseries Factory design pattern}..The {\bfseries BaseItem } class defines the base Item for our both tile and table view.Now when {\bfseries TableView } is activated the {\bfseries BaseItem } will autometically get {\bfseries TableItem} and for othe case it will get {\bfseries TileItem} through {\bfseries Tile} class.
+ \\
+ 
+ The {\bfseries Preferences } class is static therefore initiated once.Now only changing the view from that class loads the app in a certain view.It can't be initiated again and all class gets the same value on that class.\\
+ 
+ 
+ 
+  
+ 
+ 
+ So,{\bfseries TreeView class} in javafx implements the composite pattern,the Tableview class does the adapter pattern and differnt view switching implements the factory design pattern.The main function that is initialized only once during the lifetime of the app implements singleton degign pattern.\\
+ 
+ \newpage
+ 
+ 
+
+
+
+
+
+\section {Design Pattern Usage	}
+
+
+The design pattern usage on our project is described with relevent classes below:\\
+
+
+{\bfseries The Main class} runs only once and it sets the fxml in the app.It sets the resolution and therefore implements Singleton Pattern.\\
+
+{\bfseries The Controller class} controls the whole app with different properties.All setOnClickListener is implemented here.\\
+
+
+{\bfseries The Treeview} API is used here to show the hierarchy of folders to navigate to.This {\bfseries Treeview} implements {\bfseries composite} design pattern.\\
+
+
+
+The {\bfseries myTreeItem} class implements all the functionalities of a single tree node or element.It's onClick EventHandler implements what to do when an item is clicked.The folder icon is changed when a tree node having children is expanded or closed.And also a list of all available childen including folder and file is shown\\
+
+Now there are two ways of showing the all the file list in the current working directory.
+
+{\bfseries Tableview :} The {\bfseries Target class} where all the {\bfseries File} classes are are adapted to
+{\bfseries  Tableview} through {\bfseries TableItem} class and CellValueFactory.
+
+The {\bfseries TableItem class} takes the {\bfseries File} class API and relevent file values are filtered througnh this class to our {\bfseries  Tableview} class.\\
+
+{\bfseries TilePane :} Here all the files are adapted to Tilepane view through {\bfseries TileItem}s.Here each {\bfseries TileItems} are actually a going through {\bfseries Tile } class that extends vBox API class.
+
+{\bfseries TileItem :} class extends vBox and defines an structure for each item in our tileView.It autometically sets image for file or directory.It also implements {\bfseries onClickListener} for easy transition to different directories.\\
+
+{\bfseries The above two methods implement Adapter class}
+
+
+{\bfseries Switching View :} Done through {\bfseries ItemFactory} Class.This class takes the view and sets them accordingly.ToggleGroup has been used for switching views.
+
+
+{\bfseries Preferences } class can be initialized once and therefore all class can only access it's one instance.Implements {\bfseries  Singleton design  Pattern}
+
+\newpage
+
+
+
+
+
+\section {Design Pattern Implementation}
+
+The design pattern implementation is provided in code.
+
+{\bfseries  Back} functionality is used to to upper hiererchy.
+
+{\bfseries Go:} User can also go to differnt folders by typing the path to  that folder.
+
+And a meaningful function name has been used and proper documentation is given as comment beside every function and variable declaration.\\
+
+
+{\bfseries Problem faced:}\\
+1.onClickListener on each item.\\
+2.extending class functionality loss.\\
+3.Interface concept.\\
+4.Controller manipulation.\\
+	
+\end{document}\documentclass[10pt]{article}
+
+\usepackage{array}
+\usepackage{color}
+
+\newcommand{\blueIt}[1]{\itshape \textcolor{blue}{#1}}
+
+\begin{document}
+
+
+\title{\bfseries \Huge Documentation and Design Pattern Usage on\\
+\blueIt{``File Explorer"}}
+
+\author{\bfseries Muhtasim Ulfat Tanmoy\\
+1405086}
+\date{\today}
+
+\maketitle
+
+
+\newpage
+
+\section {Design Pattern Identification and Selection}
+
+The given file Explorer project has following requirements:
+
+\begin{itemize} %unordered list
+ \item {\bfseries TreeView } - for showing file hierarchy.
+ \item {\bfseries TabletView } - for showing file in a table.
+  \item {\bfseries TileView } - for showing file in a tiles.
+  \item {\bfseries Switching } - convenient way for transition between views.
+ \end{itemize}
+ 
+ Now, {\bfseries TreeView } uses the composite design pattern.As we can create different node and each node can also have other nodes as child it matches all the specification for {\bfseries Composite design pattern}.\\
+ 
+ {\bfseries TableView } and {\bfseries TileView }  has list of files that has been adapted to the view in our code through {\bfseries TableItem} and {\bfseries TileItem} class(works as adapter ).The {\bfseries Tile} class further defines the structure of our TileView.The {\bfseries File} class is the adaptee and {\bfseries TableView } and {\bfseries TilePane } is the target class ,this clearly represents the {\bfseries Adapter class pattern}.\\
+ 
+ 
+ 
+ {\bfseries Switching } between views like making the same set of of files appear in different form in front of users clearly references{\bfseries Factory design pattern}..The {\bfseries BaseItem } class defines the base Item for our both tile and table view.Now when {\bfseries TableView } is activated the {\bfseries BaseItem } will autometically get {\bfseries TableItem} and for othe case it will get {\bfseries TileItem} through {\bfseries Tile} class.
+ \\
+ 
+ The {\bfseries Preferences } class is static therefore initiated once.Now only changing the view from that class loads the app in a certain view.It can't be initiated again and all class gets the same value on that class.\\
+ 
+ 
+ 
+  
+ 
+ 
+ So,{\bfseries TreeView class} in javafx implements the composite pattern,the Tableview class does the adapter pattern and differnt view switching implements the factory design pattern.The main function that is initialized only once during the lifetime of the app implements singleton degign pattern.\\
+ 
+ \newpage
+ 
+ 
+
+
+
+
+
+\section {Design Pattern Usage	}
+
+
+The design pattern usage on our project is described with relevent classes below:\\
+
+
+{\bfseries The Main class} runs only once and it sets the fxml in the app.It sets the resolution and therefore implements Singleton Pattern.\\
+
+{\bfseries The Controller class} controls the whole app with different properties.All setOnClickListener is implemented here.\\
+
+
+{\bfseries The Treeview} API is used here to show the hierarchy of folders to navigate to.This {\bfseries Treeview} implements {\bfseries composite} design pattern.\\
+
+
+
+The {\bfseries myTreeItem} class implements all the functionalities of a single tree node or element.It's onClick EventHandler implements what to do when an item is clicked.The folder icon is changed when a tree node having children is expanded or closed.And also a list of all available childen including folder and file is shown\\
+
+Now there are two ways of showing the all the file list in the current working directory.
+
+{\bfseries Tableview :} The {\bfseries Target class} where all the {\bfseries File} classes are are adapted to
+{\bfseries  Tableview} through {\bfseries TableItem} class and CellValueFactory.
+
+The {\bfseries TableItem class} takes the {\bfseries File} class API and relevent file values are filtered througnh this class to our {\bfseries  Tableview} class.\\
+
+{\bfseries TilePane :} Here all the files are adapted to Tilepane view through {\bfseries TileItem}s.Here each {\bfseries TileItems} are actually a going through {\bfseries Tile } class that extends vBox API class.
+
+{\bfseries TileItem :} class extends vBox and defines an structure for each item in our tileView.It autometically sets image for file or directory.It also implements {\bfseries onClickListener} for easy transition to different directories.\\
+
+{\bfseries The above two methods implement Adapter class}
+
+
+{\bfseries Switching View :} Done through {\bfseries ItemFactory} Class.This class takes the view and sets them accordingly.ToggleGroup has been used for switching views.
+
+
+{\bfseries Preferences } class can be initialized once and therefore all class can only access it's one instance.Implements {\bfseries  Singleton design  Pattern}
+
+\newpage
+
+
+
+
+
+\section {Design Pattern Implementation}
+
+The design pattern implementation is provided in code.
+
+{\bfseries  Back} functionality is used to to upper hiererchy.
+
+{\bfseries Go:} User can also go to differnt folders by typing the path to  that folder.
+
+And a meaningful function name has been used and proper documentation is given as comment beside every function and variable declaration.\\
+
+
+{\bfseries Problem faced:}\\
+1.onClickListener on each item.\\
+2.extending class functionality loss.\\
+3.Interface concept.\\
+4.Controller manipulation.\\
+	
+\end{document}

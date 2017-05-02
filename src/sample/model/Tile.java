@@ -8,8 +8,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 /**
- * Created by t on 5/1/17.
+ * Created by t on 4/30/17.
  */
+
+//The structure defined for TileElement
+
 public class Tile extends VBox {
     Label name;
     Image image;
@@ -49,12 +52,6 @@ public class Tile extends VBox {
         imageView.setFitWidth(48);
         getChildren().addAll(imageView,name);
 
-        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-
-            }
-        });
     }
 
 

@@ -5,8 +5,11 @@ import javafx.scene.image.Image;
 import java.io.File;
 
 /**
- * Created by t on 5/1/17.
+ * Created by t on 4/30/17.
  */
+
+//tileItem-the adapter that takes the adaptee file and set it on TilePane through Tile class
+
 public class TileItem extends baseItem {
 
     public static Image folderExpandImage=new Image(ClassLoader.getSystemResourceAsStream("sample/res/folderIcon.png"));

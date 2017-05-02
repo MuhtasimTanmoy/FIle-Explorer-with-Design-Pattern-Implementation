@@ -208,7 +208,7 @@ public class Controller implements Initializable {
         Date.setCellValueFactory(new PropertyValueFactory<>("lastModified"));
         Size.setCellValueFactory(new PropertyValueFactory<>("size"));
 
-        tableEnabled=false;
+        tableEnabled=Preferences.getInstance().activateView();
         tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -247,6 +247,9 @@ public class Controller implements Initializable {
         tilePane.setPrefTileWidth(80);
 
         currDir.setText(currentPath);
+        if(tableEnabled){
+            tableView.setVisible(true);
+        }
         showView();
 
     }

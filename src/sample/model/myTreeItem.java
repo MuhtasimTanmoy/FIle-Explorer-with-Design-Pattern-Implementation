@@ -18,6 +18,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 package sample.model;
 
+/**
+ * Created by t on 4/30/17.
+ */
+
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -54,7 +58,7 @@ public class myTreeItem extends TreeItem<String>{
         }else{
             this.isDirectory=false;
             this.setGraphic(new ImageView(fileImage));
-            //if you want different icons for different file types this is where you'd do it
+            //if you want different icons for different file types
         }
 
         //set the value
